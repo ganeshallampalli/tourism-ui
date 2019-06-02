@@ -1,0 +1,18 @@
+:host ::ng-deep {
+  .kiel-nav {
+    width: 90%;
+  }
+
+  .login {
+    padding-top: 3px;
+    margin-right: 10px;
+
+    button {
+      margin-bottom: -12px;
+    }
+  }
+
+  .mat-tab-label {
+    width: 22.5% !important;
+  }
+}
