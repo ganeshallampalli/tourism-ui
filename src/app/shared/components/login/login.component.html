@@ -2,16 +2,16 @@
 <div mat-dialog-content>
     <mat-tab-group [(selectedIndex)]="selectedIndex">
         <mat-tab label="Login">
-            <form [formGroup]="registerForm" class="form" (submit)="registerUser()">
+            <form [formGroup]="loginForm" class="form" (submit)="loginUser()">
                 <div class="d-flex flex-column">
                     <mat-form-field appearance="fill">
                         <mat-label>User name</mat-label>
-                        <input matInput placeholder="" formControlName="firstName">
+                        <input matInput formControlName="userName">
                         <mat-icon matSuffix>person</mat-icon>
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Password</mat-label>
-                        <input matInput placeholder="" formControlName="lastName"
+                        <input matInput formControlName="password"
                                [type]='showLoginPassword ? "text" : "password"'>
                         <mat-icon matSuffix
                                   (click)="showLoginPassword = !showLoginPassword">{{showLoginPassword ? 'visibility' : 'visibility_off'}}
@@ -19,8 +19,8 @@
                     </mat-form-field>
                 </div>
                 <div class="login-actions">
-                    <button mat-button type="submit" mat-raised-button color="primary">Login</button>
-                    <button mat-button (click)="selectedIndex = 1" color="accent"> New User? Register here</button>
+                    <button type="submit" mat-raised-button color="primary" class="btn-login">Login</button>
+                    <button class="no-outline" mat-button (click)="selectedIndex = 1" color="accent"> New User? Register here</button>
                 </div>
             </form>
         </mat-tab>
@@ -53,10 +53,6 @@
 
                             <input matInput placeholder="" formControlName="emailId">
                             <mat-icon matSuffix>email</mat-icon>
-
-                            <!--                    <mat-error *ngIf="!formGroup.controls['email'].valid && formGroup.controls['email'].touched">-->
-                            <!--                        {{ getErrorEmail() }}-->
-                            <!--                    </mat-error>-->
                         </mat-form-field>
 
                         <mat-form-field class="col-space" appearance="fill">
@@ -94,6 +90,7 @@
                     </div>
                 </div>
                 <div class="float-right col-space">
+                    <button class="no-outline" mat-button (click)="selectedIndex = 0" color="accent"> Already have an account? Login here</button>
                     <button class="btn-reset" mat-button type="reset" color="warn" (click)="resetRegisterForm()">Reset
                     </button>
                     <button mat-button type="submit" mat-raised-button color="primary">Register</button>

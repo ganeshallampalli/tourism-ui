@@ -6,3 +6,8 @@ export interface User {
     phNo: String;
     role: String;
 }
+
+export interface LoginUser {
+    userName: String;
+    password: String;
+}

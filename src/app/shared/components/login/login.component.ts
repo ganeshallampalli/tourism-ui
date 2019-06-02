@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {User} from "../../models/user";
+import {LoginUser, User} from "../../models/user";
 import {LoginService} from "./login.service";
 import {MatSnackBar} from "@angular/material";
 
@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
     showConfPassword = false;
     selectedIndex = 0;
     showLoginPassword = false;
+    loginForm: FormGroup;
 
     constructor(private fb: FormBuilder,
                 private loginService: LoginService,
@@ -24,6 +25,7 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
         this.createRegisterForm();
+        this.createLoginForm();
     }
 
     createRegisterForm() {
@@ -37,9 +39,16 @@ export class LoginComponent implements OnInit {
         })
     }
 
+    createLoginForm() {
+        this.loginForm = this.fb.group({
+            userName: new FormControl(null, [Validators.required]),
+            password: new FormControl(null, [Validators.required])
+        })
+    }
+
 
     registerUser() {
-        let user: User = {
+        const user: User = {
             firstName: this.registerForm.controls["firstName"].value,
             lastName: this.registerForm.controls["lastName"].value,
             email: this.registerForm.controls["emailId"].value,
@@ -50,11 +59,12 @@ export class LoginComponent implements OnInit {
         if (this.registerForm.valid) {
             this.loginService.registerUser(user).subscribe(res => {
                 this.snackBar.open(res.message, res.code, {
-                    duration: 2000
+                    duration: 4000
                 });
+                this.resetRegisterForm();
             }, (error) => {
-                this.snackBar.open(error, "500", {
-                    duration: 2000
+                this.snackBar.open("There exists a problem while connecting to the server", "500", {
+                    duration: 4000
                 });
             })
 
@@ -62,7 +72,32 @@ export class LoginComponent implements OnInit {
 
     }
 
+    loginUser() {
+        const loginUser: LoginUser = {
+            userName: this.loginForm.controls['userName'].value,
+            password: this.loginForm.controls['password'].value
+        };
+        if (this.loginForm.valid) {
+            this.loginService.loginUser(loginUser).subscribe(res => {
+                this.snackBar.open(res.message, res.code, {
+                    duration: 4000
+                });
+            }, (error) => {
+                this.snackBar.open("There exists a problem while connecting to the server", "", {
+                    duration: 4000
+                });
+            }, () => {
+                this.resetLoginForm();
+            });
+        }
+    }
+
+
     resetRegisterForm() {
         this.registerForm.reset();
+    }
+
+    resetLoginForm() {
+        this.loginForm.reset();
     }
 }
