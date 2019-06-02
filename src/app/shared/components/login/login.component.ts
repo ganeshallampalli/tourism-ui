@@ -93,6 +93,14 @@ export class LoginComponent implements OnInit {
     }
 
 
+    get password() {
+        return this.registerForm.controls['password'] as FormControl;
+    }
+
+    get confirmPassword() {
+        return this.registerForm.controls['confirmPassword'] as FormControl;
+    }
+
     resetRegisterForm() {
         this.registerForm.reset();
     }
