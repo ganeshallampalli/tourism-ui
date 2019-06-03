@@ -1,10 +1,53 @@
 <div class="d-flex">
     <div class="kiel-nav">
         <mat-tab-group>
-            <mat-tab class="kiel-nav-item" label="Home"> Home is working</mat-tab>
-            <mat-tab class="kiel-nav-item" label="Experience Kiel"> Experience Kiel is working</mat-tab>
-            <mat-tab class="kiel-nav-item" label="About us"> About Us is working</mat-tab>
-            <mat-tab class="kiel-nav-item" label="Query | FeedBack"> Query | Feedback is working</mat-tab>
+            <mat-tab class="kiel-nav-item">
+                <ng-template mat-tab-label>
+                    <strong>Home</strong>
+                    <mat-icon>
+                        home
+                    </mat-icon>
+                </ng-template>
+                Home is working
+            </mat-tab>
+            <mat-tab class="kiel-nav-item">
+                <ng-template mat-tab-label>
+                    <strong>Experience Kiel</strong>
+                    <mat-icon (click)="snav.toggle()">
+                        menu
+                    </mat-icon>
+                </ng-template>
+                Experience Kiel is working
+                <mat-sidenav-container class="example-sidenav-container">
+                    <mat-sidenav #snav >
+                        <mat-nav-list>
+                            <a mat-list-item routerLink="." >Test</a>
+                        </mat-nav-list>
+                    </mat-sidenav>
+
+                    <mat-sidenav-content>
+                        <p>Test Content</p>
+                    </mat-sidenav-content>
+                </mat-sidenav-container>
+            </mat-tab>
+            <mat-tab class="kiel-nav-item">
+                <ng-template mat-tab-label>
+                    <strong>About us</strong>
+                    <mat-icon>
+                        info
+                    </mat-icon>
+                </ng-template>
+                About Us is working
+            </mat-tab>
+            <mat-tab class="kiel-nav-item">
+                <ng-template mat-tab-label>
+                    <strong>Query | FeedBack</strong>
+                    <mat-icon>
+                        feedback
+                    </mat-icon>
+                </ng-template>
+                Query | Feedback is working
+            </mat-tab>
         </mat-tab-group>
     </div>
     <div class="login">
