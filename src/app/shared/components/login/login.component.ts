@@ -59,12 +59,12 @@ export class LoginComponent implements OnInit {
         if (this.registerForm.valid) {
             this.loginService.registerUser(user).subscribe(res => {
                 this.snackBar.open(res.message, res.code, {
-                    duration: 4000
+                    duration: 5000
                 });
                 this.resetRegisterForm();
             }, (error) => {
                 this.snackBar.open("There exists a problem while connecting to the server", "500", {
-                    duration: 4000
+                    duration: 5000
                 });
             })
 

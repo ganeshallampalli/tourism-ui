@@ -7,6 +7,7 @@ import {AppComponent} from './app.component';
 import {MaterialModule} from "./material.module";
 import {LoginModule} from "./shared/components/login/login.module";
 import {HttpClientModule} from "@angular/common/http";
+import {FeedBackModule} from "./shared/components/feed-back/feed-back.module";
 
 @NgModule({
     declarations: [
@@ -16,8 +17,9 @@ import {HttpClientModule} from "@angular/common/http";
         BrowserModule,
         BrowserAnimationsModule,
         MaterialModule,
+        HttpClientModule,
         LoginModule,
-        HttpClientModule
+        FeedBackModule
     ],
     providers: [],
     bootstrap: [AppComponent]
