@@ -1,6 +1,6 @@
 :host ::ng-deep {
   .kiel-nav {
-    width: 90%;
+    width: 100%;
   }
 
   .login {
@@ -13,10 +13,12 @@
   }
 
   .mat-tab-label {
-    width: 22.5% !important;
+    width: 33.3% !important;
   }
 
   strong {
     margin-right: 15px;
   }
+
+
 }
