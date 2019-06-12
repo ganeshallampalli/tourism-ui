@@ -13,14 +13,22 @@ $toolbar-title-padding: 16px !default;
 }
 
 .about-us {
-  padding-top: 3%;
-  margin-left: 15%;
-  margin-right: 15%;
+  //padding-top: 3%;
+  //margin-left: 15%;
+  //margin-right: 15%;
+  padding: 10%;
+  padding-top: 7%;
+  background-image: url("../../../../assets/images/home_2.JPG");
+
+
+  .content {
+    font-family: monospace;
+  }
+
+  .mat-card {
+    opacity: 0.8;
+  }
 }
 
-.content {
-  font-family: monospace;
-
-}
 
 

@@ -8,10 +8,10 @@ import {LoginModule} from "./shared/components/login/login.module";
 import {HttpClientModule} from "@angular/common/http";
 import {FeedBackModule} from "./shared/components/feed-back/feed-back.module";
 import {RouterModule} from "@angular/router";
-import {CruiseCardComponent} from "./shared/components/cruise/cruise-card.component";
 import {CruiseModule} from "./shared/components/cruise/cruise.module";
 import {NavComponent} from "./shared/components/nav/nav.component";
 import {NavigationBarComponent} from "./shared/components/navigation-bar/navigation-bar.component";
+import {CruiseComponent} from "./shared/components/cruise/cruise.component";
 
 @NgModule({
     declarations: [
@@ -29,7 +29,7 @@ import {NavigationBarComponent} from "./shared/components/navigation-bar/navigat
         CruiseModule,
         RouterModule.forRoot([
             {
-                path: "cruise", component: CruiseCardComponent
+                path: "cruise", component: CruiseComponent
             }
         ])
     ],

@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { CruiseCardComponent } from './cruise-card.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {CruiseComponent} from "./cruise.component";
 
 @NgModule({
-  declarations: [CruiseCardComponent],
+  declarations: [CruiseComponent],
   imports: [
     CommonModule
   ]
