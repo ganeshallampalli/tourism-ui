@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {LoginUser, User} from "../../models/user";
 import {LoginService} from "./login.service";
 import {MatSnackBar} from "@angular/material";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'kiel-login',
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
 
     constructor(private fb: FormBuilder,
                 private loginService: LoginService,
-                private snackBar: MatSnackBar) {
+                private snackBar: MatSnackBar,
+                private router: Router) {
     }
 
     ngOnInit() {
@@ -79,9 +81,16 @@ export class LoginComponent implements OnInit {
         };
         if (this.loginForm.valid) {
             this.loginService.loginUser(loginUser).subscribe(res => {
-                this.snackBar.open(res.message, res.code, {
-                    duration: 4000
-                });
+                if (res.code === "200") {
+                    localStorage.setItem("userName", res.userName);
+                    localStorage.setItem("role", res.role);
+                    localStorage.setItem("emailId", res.emailId);
+                    this.router.navigate(['/'])
+                    this.snackBar.open(res.message, res.code, {
+                        duration: 4000
+                    });
+                    window.location.reload();
+                }
             }, (error) => {
                 this.snackBar.open("There exists a problem while connecting to the server", "", {
                     duration: 4000

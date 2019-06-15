@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {LoginComponent} from "../login/login.component";
-import {MatDialog} from "@angular/material";
+import {MatDialog, MatSnackBar} from "@angular/material";
 import {Router} from "@angular/router";
 import {FeedBackComponent} from "../feed-back/feed-back.component";
 
@@ -16,7 +16,9 @@ interface ROUTE {
     templateUrl: './nav.component.html',
     styleUrls: ['./nav.component.scss']
 })
-export class NavComponent {
+export class NavComponent implements OnInit {
+
+    userName: String;
 
     experienceRoutes: ROUTE[] = [
         {
@@ -26,12 +28,12 @@ export class NavComponent {
         },
         {
             icon: 'local_dining',
-            title: 'Experience Dining',
+            title: 'Experience Cuisine',
             route: 'cruise'
         },
         {
             icon: 'near_me',
-            title: 'Experience Others',
+            title: 'Things to do',
             route: 'cruise'
         }
     ];
@@ -49,9 +51,14 @@ export class NavComponent {
         }
     ];
 
-    constructor(private dialog: MatDialog, private router: Router) {
+    constructor(private dialog: MatDialog,
+                private router: Router,
+                private snackBar: MatSnackBar) {
     }
 
+    ngOnInit() {
+        this.userName = localStorage.getItem("userName");
+    }
 
     openLoginForm(): void {
         const dialogRef = this.dialog.open(LoginComponent, {});
@@ -70,6 +77,14 @@ export class NavComponent {
 
     exitRoute() {
         this.router.navigate(['/'])
+    }
+
+    logout() {
+        localStorage.clear();
+        this.snackBar.open("You have been logged out successfully", "", {
+            duration: 5000
+        });
+        window.location.reload();
     }
 }
 
