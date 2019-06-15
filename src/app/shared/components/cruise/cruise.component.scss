@@ -1,0 +1,34 @@
+:host {
+
+  .cruise-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1%;
+
+    h4 {
+      color: #3f51b5;
+    }
+
+  }
+
+  .cruises {
+    background-image: url("../../../../assets/images/home_5.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .cruise {
+      padding: 2%;
+      width: 500px;
+
+      mat-card {
+        width: 30vw;
+        height: 75vh;
+      }
+    }
+  }
+
+  .cruise-info {
+    //padding: 10%;
+  }
+}

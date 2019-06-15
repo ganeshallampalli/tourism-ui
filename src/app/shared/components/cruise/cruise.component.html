@@ -1,3 +1,33 @@
-<p>
-  cruise-card works!
-</p>
+<div>
+    <div class="cruise-header">
+        <h4>Experience Experience</h4>
+        <button mat-raised-button color="primary" (click)="openForm()">
+            <mat-icon>directions_boat</mat-icon>
+            Add
+        </button>
+    </div>
+</div>
+<div>
+    <mat-grid-list cols="3">
+        <mat-grid-tile *ngFor="let cruise of cruiseList">
+            <div class="cruise-info">
+                <mat-card class="example-card">
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-image"></div>
+                        <mat-card-title>{{cruise.name}}</mat-card-title>
+                    </mat-card-header>
+                    <img mat-card-image [src]="'data:image/jpg;base64,'+ cruise.encodedImage"
+                         alt="Photo of a Shiba Inu">
+                    <mat-card-content>
+                        <p>
+                         {{cruise.description}}
+                        </p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+</div>
+
+
