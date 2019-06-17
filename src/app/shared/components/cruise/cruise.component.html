@@ -1,33 +1,39 @@
-<div>
+<div class="exp-cruise">
     <div class="cruise-header">
-        <h4>Experience Experience</h4>
-        <button mat-raised-button color="primary" (click)="openForm()">
-            <mat-icon>directions_boat</mat-icon>
-            Add
-        </button>
+        <div class="cruise-actions">
+            <h4>Experience Cruise</h4>
+            <button *ngIf="isAdmin" mat-raised-button color="primary" (click)="openForm()">
+                <mat-icon>directions_boat</mat-icon>
+                Add
+            </button>
+        </div>
     </div>
-</div>
-<div>
-    <mat-grid-list cols="3">
-        <mat-grid-tile *ngFor="let cruise of cruiseList">
-            <div class="cruise-info">
-                <mat-card class="example-card">
+    <div class="cruise-grid">
+        <mat-grid-list cols="4" gutterSize="15px" rowHeight="450px">
+            <mat-grid-tile *ngFor="let cruise of cruiseList">
+                <mat-card>
                     <mat-card-header>
-                        <div mat-card-avatar class="example-header-image"></div>
+                        <div mat-card-avatar class="header-image"
+                             [style.backgroundImage]="'url(' + 'data:image/jpg;base64,'+ cruise.encodedImage + ')'"></div>
                         <mat-card-title>{{cruise.name}}</mat-card-title>
                     </mat-card-header>
                     <img mat-card-image [src]="'data:image/jpg;base64,'+ cruise.encodedImage"
-                         alt="Photo of a Shiba Inu">
+                         width="300" height="250" alt="No cruise">
                     <mat-card-content>
                         <p>
-                         {{cruise.description}}
+                            {{cruise.description}}
                         </p>
                     </mat-card-content>
+                    <mat-card-actions class="d-flex justify-content-between">
+                        <button class="no-outline" mat-mini-fab color="primary">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button class="no-outline" mat-mini-fab color="warn">
+                            <mat-icon (click)="deleteCruise(cruise.id)">delete</mat-icon>
+                        </button>
+                    </mat-card-actions>
                 </mat-card>
-            </div>
-        </mat-grid-tile>
-    </mat-grid-list>
-
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
 </div>
-
-
