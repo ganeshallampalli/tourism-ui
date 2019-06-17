@@ -49,15 +49,21 @@ export class FormComponent implements OnInit {
 
         let type = "";
         if (this.form.valid) {
-           if (this.data.name === "Cuisine") {
-                experience.cost = this.form.controls["cost"].value
+            if (this.data.name === "Cruise") {
+                type = "cruise";
             }
 
-            if (this.data.name === "Things to do") {
-                experience.cost = this.form.controls["avgTimeSpent"].value
+            if (this.data.name === "Cuisine") {
+                experience.cost = this.form.controls["cost"].value;
+                type = "cuisine";
             }
 
-            this.experienceService.addExperience(this.data.name.toLowerCase(), experience).subscribe(res => {
+            if (this.data.name === "ThingsToDo") {
+                experience.cost = this.form.controls["avgTimeSpent"].value;
+                type = "thingsToDo";
+            }
+
+            this.experienceService.addExperience(type, experience).subscribe(res => {
                 this.snackBar.open(res.message, res.code, {
                     duration: 5000
                 })

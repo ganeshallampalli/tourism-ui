@@ -16,6 +16,7 @@ export class ExperienceService {
     }
 
     getExperiences(type: string): Observable<any> {
+        console.log("type", type);
         return this.http.get(`/tourism/api/v1/${type}`);
     }
 

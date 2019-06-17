@@ -12,6 +12,10 @@ import {CruiseModule} from "./shared/components/cruise/cruise.module";
 import {NavComponent} from "./shared/components/nav/nav.component";
 import {NavigationBarComponent} from "./shared/components/navigation-bar/navigation-bar.component";
 import {CruiseComponent} from "./shared/components/cruise/cruise.component";
+import {CuisineComponent} from "./shared/components/cuisine/cuisine.component";
+import {CuisineModule} from "./shared/components/cuisine/cuisine.module";
+import {ThingsTodoComponent} from "./shared/components/things-todo/things-todo.component";
+import {ThingsTodoModule} from "./shared/components/things-todo/things-todo.module";
 
 @NgModule({
     declarations: [
@@ -27,10 +31,18 @@ import {CruiseComponent} from "./shared/components/cruise/cruise.component";
         LoginModule,
         FeedBackModule,
         CruiseModule,
+        CuisineModule,
+        ThingsTodoModule,
         RouterModule.forRoot([
             {
                 path: "cruise", component: CruiseComponent
-            }
+            },
+            {
+                path: "cuisine", component: CuisineComponent
+            },
+            {
+                path: "things-todo", component: ThingsTodoComponent
+            },
         ])
     ],
     providers: [],

@@ -37,7 +37,7 @@ export class NavComponent implements OnInit {
         {
             icon: 'near_me',
             title: 'Things to do',
-            route: 'cuisine'
+            route: 'things-todo'
         }
     ];
     adminRoutes: ROUTE[] = [

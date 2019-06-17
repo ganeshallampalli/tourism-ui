@@ -3,6 +3,7 @@ import {MatDialog, MatSnackBar} from "@angular/material";
 import {FormComponent} from "../form/form.component";
 import {Experience} from "../../models/experience";
 import {ExperienceService} from "../../services/experience.service";
+import {EditFormComponent} from "../edit-form/edit-form.component";
 
 @Component({
     selector: 'kiel-cruise',
@@ -102,7 +103,7 @@ export class CruiseComponent implements OnInit {
         },
 
 
-    ]
+    ];
 
     openForm(): void {
         const dialogRef = this.dialog.open(FormComponent, {
@@ -136,6 +137,19 @@ export class CruiseComponent implements OnInit {
     get isAdmin() {
         return localStorage.getItem("role") === "ADMIN";
     }
+
+    editCruise(cruise: Experience) {
+        const dialogRef = this.dialog.open(EditFormComponent, {
+            data: {name: "Cruise", experience: cruise},
+            width: "500px"
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            console.log('The dialog was closed');
+            this.cruiseService.getExperiences("cruise").subscribe(response => this.cruiseList = response.cruises);
+        });
+    }
+
 
     deleteCruise(cruiseId) {
         this.cruiseService.deleteExperience("cruise", cruiseId).subscribe(response => {
