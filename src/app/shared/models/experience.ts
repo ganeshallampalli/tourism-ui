@@ -1,6 +1,9 @@
 export interface Experience {
+    id?: number
     name: String,
     description: String,
-    encodedImage?: String
+    encodedImage?: String,
+    cost?: number,
+    avgTimeSpent?: number
 }
 

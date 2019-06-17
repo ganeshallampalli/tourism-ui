@@ -19,4 +19,8 @@ export class ExperienceService {
         return this.http.get(`/tourism/api/v1/${type}`);
     }
 
+    deleteExperience(type: string, cruiseId: string): Observable<any> {
+        return this.http.delete(`/tourism/api/v1/${type}/${cruiseId}`);
+    }
+
 }
