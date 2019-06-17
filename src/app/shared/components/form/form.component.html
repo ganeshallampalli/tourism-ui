@@ -10,6 +10,15 @@
         <mat-label>Description</mat-label>
         <textarea matInput formControlName="description"></textarea>
       </mat-form-field>
+      <mat-form-field *ngIf="data?.name === 'Cuisine'">
+        <mat-label>Average cost for two</mat-label>
+        <input matInput type="number" formControlName="cost">
+        <span matSuffix>€&nbsp;</span>
+      </mat-form-field>
+      <mat-form-field *ngIf="data?.name === 'Things to do'">
+        <mat-label>Average time spent</mat-label>
+        <input matInput type="number" formControlName="avgTimeSpent">
+      </mat-form-field>
       <br/>
       <kiel-image-upload (sendImage)="getImage($event)"></kiel-image-upload>
     </div>
