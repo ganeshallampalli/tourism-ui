@@ -19,6 +19,9 @@ interface ROUTE {
 export class NavComponent implements OnInit {
 
     userName: String;
+    role: String;
+
+    adminRole: boolean = false;
 
     experienceRoutes: ROUTE[] = [
         {
@@ -29,25 +32,24 @@ export class NavComponent implements OnInit {
         {
             icon: 'local_dining',
             title: 'Experience Cuisine',
-            route: 'cruise'
+            route: 'cuisine'
         },
         {
             icon: 'near_me',
             title: 'Things to do',
-            route: 'cruise'
+            route: 'cuisine'
         }
     ];
-
     adminRoutes: ROUTE[] = [
         {
             icon: 'verified_users',
             title: 'Users',
-            route: 'cruise'
+            route: 'cuisine'
         },
         {
             icon: 'feedback',
             title: 'Feedbacks',
-            route: 'cruise'
+            route: 'cuisine'
         }
     ];
 
@@ -58,6 +60,10 @@ export class NavComponent implements OnInit {
 
     ngOnInit() {
         this.userName = localStorage.getItem("userName");
+    }
+
+    get isAdmin() {
+        return localStorage.getItem("role") === "ADMIN";
     }
 
     openLoginForm(): void {

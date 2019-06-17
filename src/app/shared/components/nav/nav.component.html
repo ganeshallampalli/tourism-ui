@@ -5,7 +5,7 @@
 
             <mat-toolbar>
                 <mat-toolbar-row>
-                    <h2 class="toolbar-title primary"> Hello, {{userName}}</h2>
+                    <h2 class="toolbar-title primary"> Hello {{userName}}</h2>
                 </mat-toolbar-row>
             </mat-toolbar>
 
@@ -42,6 +42,19 @@
                     <mat-icon matListIcon class="app-nav-list-icon"> {{item.icon}}</mat-icon>
                     {{item.title}}
                 </a>
+
+                <mat-divider></mat-divider>
+
+                <ng-container *ngIf="isAdmin">
+                    <a *ngFor="let item of adminRoutes"
+                       mat-list-item
+                       (click)="sidenav.close()"
+                       [routerLink]="[item.route]"
+                       routerLinkActive="list-item-active">
+                        <mat-icon matListIcon class="app-nav-list-icon"> {{item.icon}}</mat-icon>
+                        {{item.title}}
+                    </a>
+                </ng-container>
 
                 <mat-divider></mat-divider>
 
