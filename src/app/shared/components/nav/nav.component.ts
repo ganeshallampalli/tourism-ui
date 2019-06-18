@@ -21,8 +21,6 @@ export class NavComponent implements OnInit {
     userName: String;
     role: String;
 
-    adminRole: boolean = false;
-
     experienceRoutes: ROUTE[] = [
         {
             icon: 'directions_boat',
@@ -44,7 +42,7 @@ export class NavComponent implements OnInit {
         {
             icon: 'verified_users',
             title: 'Users',
-            route: 'cuisine'
+            route: 'users'
         },
         {
             icon: 'feedback',

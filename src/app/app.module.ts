@@ -16,6 +16,8 @@ import {CuisineComponent} from "./shared/components/cuisine/cuisine.component";
 import {CuisineModule} from "./shared/components/cuisine/cuisine.module";
 import {ThingsTodoComponent} from "./shared/components/things-todo/things-todo.component";
 import {ThingsTodoModule} from "./shared/components/things-todo/things-todo.module";
+import {UsersModule} from "./shared/components/users/users.module";
+import {UsersComponent} from "./shared/components/users/users.component";
 
 @NgModule({
     declarations: [
@@ -33,6 +35,7 @@ import {ThingsTodoModule} from "./shared/components/things-todo/things-todo.modu
         CruiseModule,
         CuisineModule,
         ThingsTodoModule,
+        UsersModule,
         RouterModule.forRoot([
             {
                 path: "cruise", component: CruiseComponent
@@ -42,6 +45,9 @@ import {ThingsTodoModule} from "./shared/components/things-todo/things-todo.modu
             },
             {
                 path: "things-todo", component: ThingsTodoComponent
+            },
+            {
+                path: "users", component: UsersComponent
             },
         ])
     ],
