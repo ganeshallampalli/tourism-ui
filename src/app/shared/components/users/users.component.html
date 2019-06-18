@@ -1,0 +1,25 @@
+<div class="users">
+    <mat-card matRipple *ngFor="let cruise of [1,2]">
+        <mat-card-content>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-4 d-flex justify-content-around">
+                        <mat-icon matBadge="GJ" matBadgeColor="warn">person</mat-icon>
+                        <span>Dileep Kumar Jami</span>
+                    </div>
+                    <div class="col-4 d-flex justify-content-around">
+                        <mat-icon>contact_mail</mat-icon>
+                        dileepkumarjami@gmail.com
+                    </div>
+                    <div class="col-4 d-flex justify-content-around">
+                        <mat-icon matBadge="GJ" matBadgeColor="warn">phone</mat-icon>
+                        <mat-chip-list>
+                            <mat-chip color="primary" selected>8136889404</mat-chip>
+                        </mat-chip-list>
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+</div>
