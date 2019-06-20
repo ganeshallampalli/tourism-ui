@@ -5,6 +5,8 @@ export interface User {
     password: String;
     phNo: String;
     role: String;
+    userName?: String;
+    userId?: String;
 }
 
 export interface LoginUser {
