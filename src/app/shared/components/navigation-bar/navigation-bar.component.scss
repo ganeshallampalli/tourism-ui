@@ -1,38 +1,10 @@
-$toolbar-title-padding: 16px !default;
-
-.toolbar-title {
-  margin: 0 $toolbar-title-padding 0 $toolbar-title-padding;
-}
-
-.navigation-items {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-  display: flex;
-}
-
-.about-us {
-
-  padding-top: 5%;
-  padding-bottom: 16%;
-
-  background-image: url("../../../../assets/images/home_2.JPG");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  mat-card {
-    margin-right: 25%;
-    margin-left: 25%;
+:host {
+  .example-spacer {
+    flex: 1 1 auto;
   }
 
-  .content {
-    font-family: monospace;
-  }
-
-  .mat-card {
-    opacity: 0.8;
+  .title {
+    padding-left: 5px;
   }
 }
 

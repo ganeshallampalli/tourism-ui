@@ -18,6 +18,8 @@ import {ThingsTodoComponent} from "./shared/components/things-todo/things-todo.c
 import {ThingsTodoModule} from "./shared/components/things-todo/things-todo.module";
 import {UsersModule} from "./shared/components/users/users.module";
 import {UsersComponent} from "./shared/components/users/users.component";
+import {AboutUsModule} from "./shared/components/about-us/about-us.module";
+import {AboutUsComponent} from "./shared/components/about-us/about-us.component";
 
 @NgModule({
     declarations: [
@@ -36,7 +38,11 @@ import {UsersComponent} from "./shared/components/users/users.component";
         CuisineModule,
         ThingsTodoModule,
         UsersModule,
+        AboutUsModule,
         RouterModule.forRoot([
+            {
+                path: "", redirectTo: 'home', pathMatch: 'full'
+            },
             {
                 path: "cruise", component: CruiseComponent
             },
@@ -48,6 +54,9 @@ import {UsersComponent} from "./shared/components/users/users.component";
             },
             {
                 path: "users", component: UsersComponent
+            },
+            {
+                path: "home", component: AboutUsComponent
             },
         ])
     ],
