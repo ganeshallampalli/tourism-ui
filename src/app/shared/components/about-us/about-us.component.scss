@@ -1,0 +1,26 @@
+:host {
+  .about-us {
+
+    padding-top: 5%;
+    padding-bottom: 16%;
+
+    background-image: url("../../../../assets/images/home_2.JPG");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    mat-card {
+      margin-right: 25%;
+      margin-left: 25%;
+    }
+
+    .content {
+      font-family: monospace;
+    }
+
+    .mat-card {
+      opacity: 0.8;
+    }
+  }
+
+}
