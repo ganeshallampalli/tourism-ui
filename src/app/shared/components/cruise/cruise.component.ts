@@ -127,6 +127,7 @@ export class CruiseComponent implements OnInit {
             this.snackBar.open("There exists a problem while connecting to the server. Sorry for the inconvenience", "500", {
                 duration: 5000
             });
+            this.cruiseList = [];
         });
     }
 

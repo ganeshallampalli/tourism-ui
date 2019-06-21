@@ -1,33 +1,31 @@
-<div class="exp-things">
-  <div class="things-header">
+<div class="things-header">
     <div class="things-actions">
-      <h4>Experience Things</h4>
-      <button *ngIf="isAdmin" mat-raised-button color="primary" (click)="openForm()">
-        <mat-icon>near_me</mat-icon>
-        Add
-      </button>
+        <h4>Experience Things</h4>
+        <button *ngIf="isAdmin" mat-raised-button color="primary" (click)="openForm()">
+            <mat-icon>near_me</mat-icon>
+            Add
+        </button>
     </div>
-  </div>
-  <div class="things-grid">
+</div>
+<div class="things-grid">
     <mat-grid-list cols="4" gutterSize="15px" rowHeight="450px">
-      <mat-grid-tile *ngFor="let thing of thingsToDoList">
-        <mat-card>
-          <mat-card-header>
-            <div mat-card-avatar class="header-image"
-                 [style.backgroundImage]="'url(' + 'data:image/jpg;base64,'+ thing.encodedImage + ')'"></div>
-            <mat-card-title>{{thing.name}}</mat-card-title>
-            <mat-card-subtitle>Average time spent(Hrs) : &nbsp; {{thing.avgTimeSpent}}</mat-card-subtitle>
-          </mat-card-header>
-          <img mat-card-image [src]="'data:image/jpg;base64,'+ thing.encodedImage"
-               width="300" height="250" alt="No cuisine">
-          <mat-card-content>
-            <p>
-              {{thing.description}}
-            </p>
-          </mat-card-content>
-        </mat-card>
-      </mat-grid-tile>
+        <mat-grid-tile *ngFor="let thing of thingsToDoList">
+            <mat-card>
+                <mat-card-header>
+                    <div mat-card-avatar class="header-image"
+                         [style.backgroundImage]="'url(' + 'data:image/jpg;base64,'+ thing.encodedImage + ')'"></div>
+                    <mat-card-title>{{thing.name}}</mat-card-title>
+                    <mat-card-subtitle>Average time spent(Hrs) : &nbsp; {{thing.avgTimeSpent}}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image [src]="'data:image/jpg;base64,'+ thing.encodedImage"
+                     width="300" height="250" alt="No cuisine">
+                <mat-card-content>
+                    <p>
+                        {{thing.description}}
+                    </p>
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
     </mat-grid-list>
 
-  </div>
 </div>
