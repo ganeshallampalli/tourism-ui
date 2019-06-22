@@ -7,21 +7,22 @@
         </button>
     </div>
 </div>
-<div class="cruise-grid">
-    <mat-grid-list cols="4" gutterSize="15px" rowHeight="450px">
+<div class="cruise-grid" [ngClass]="{'vh-100': cruiseList.length <=4 }">
+    <mat-grid-list cols="4" gutterSize="15px" rowHeight="440px">
         <mat-grid-tile *ngFor="let cruise of cruiseList">
-            <mat-card>
+            <mat-card class="w-100">
                 <mat-card-header>
                     <div mat-card-avatar class="header-image"
                          [style.backgroundImage]="'url(' + 'data:image/jpg;base64,'+ cruise.encodedImage + ')'"></div>
                     <mat-card-title>{{cruise.name}}</mat-card-title>
                 </mat-card-header>
                 <img mat-card-image [src]="'data:image/jpg;base64,'+ cruise.encodedImage"
-                     width="300" height="250" alt="No cruise">
+                     width="300" height="180" alt="No cruise">
                 <mat-card-content>
-                    <p>
+                    <div>
                         {{cruise.description}}
-                    </p>
+                    </div>
+                    <a href="https:google.com" target="_blank">See more ...</a>
                 </mat-card-content>
                 <mat-card-actions class="d-flex justify-content-between">
                     <button class="no-outline" mat-mini-fab color="primary">

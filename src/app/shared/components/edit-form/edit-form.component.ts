@@ -1,6 +1,6 @@
 import {Component, Inject, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {MAT_DIALOG_DATA, MatSnackBar} from "@angular/material";
+import {MAT_DIALOG_DATA, MatDialogRef, MatSnackBar} from "@angular/material";
 import {Experience} from "../../models/experience";
 import {ExperienceService} from "../../services/experience.service";
 
@@ -17,6 +17,7 @@ export class EditFormComponent implements OnInit {
   constructor(private fb: FormBuilder,
               @Inject(MAT_DIALOG_DATA) public data,
               private snackBar: MatSnackBar,
+              public dialogRef: MatDialogRef<EditFormComponent>,
               private experienceService: ExperienceService) {
   }
 
@@ -44,7 +45,7 @@ export class EditFormComponent implements OnInit {
       id: this.data.experience.id,
       name: this.form.controls["name"].value,
       description: this.form.controls["description"].value,
-      encodedImage: this.encodedImage
+      encodedImage: this.encodedImage ? this.encodedImage : this.data.experience.encodedImage
     };
 
     if (this.form.valid) {
@@ -59,7 +60,9 @@ export class EditFormComponent implements OnInit {
       this.experienceService.addExperience(this.data.name.toLowerCase(), experience).subscribe(res => {
         this.snackBar.open(res.message, res.code, {
           duration: 5000
-        })
+        });
+        this.dialogRef.close();
+
       }, () => {
         this.snackBar.open("There exists a problem while connecting to the server", "500", {
           duration: 5000

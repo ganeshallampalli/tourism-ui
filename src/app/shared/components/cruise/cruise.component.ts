@@ -113,10 +113,15 @@ export class CruiseComponent implements OnInit {
 
         dialogRef.afterClosed().subscribe(result => {
             console.log('The dialog was closed');
+            this.getExperiences();
         });
     }
 
     ngOnInit() {
+        this.getExperiences();
+    }
+
+    getExperiences() {
         this.cruiseService.getExperiences("cruise").subscribe(response => {
 
             if (response.code === "200") {
@@ -154,7 +159,7 @@ export class CruiseComponent implements OnInit {
 
     deleteCruise(cruiseId) {
         this.cruiseService.deleteExperience("cruise", cruiseId).subscribe(response => {
-            if (response.code === 200) {
+            if (response.code === "200") {
                 this.snackBar.open(response.message, response.code, {
                     duration: 5000
                 });
