@@ -8,6 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "start:mock": "ng serve --proxy-config proxy.config.json",
     "heroku-postbuild": "ng build --prod"
   },
   "private": true,
