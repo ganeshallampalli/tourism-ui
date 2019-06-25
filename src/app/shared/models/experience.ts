@@ -4,6 +4,7 @@ export interface Experience {
     description: String,
     encodedImage?: String,
     cost?: number,
-    avgTimeSpent?: number
+    avgTimeSpent?: number,
+    additionalLink?: String
 }
 

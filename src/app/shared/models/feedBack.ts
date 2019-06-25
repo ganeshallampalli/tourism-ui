@@ -1,5 +1,5 @@
 export interface FeedBack {
-    emailId: String,
+    email: String,
     subject: String,
     message: String,
     fullName: String

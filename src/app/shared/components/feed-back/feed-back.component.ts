@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {FeedBack} from "../../models/feedBack";
-import {FeedBackService} from "./feed-back.service";
+import {FeedBackService} from "../../services/feed-back.service";
 import {MatDialogRef, MatSnackBar} from "@angular/material";
 
 @Component({
@@ -34,7 +34,7 @@ export class FeedBackComponent implements OnInit {
 
     submitFeedBack() {
         const feedBack: FeedBack = {
-            emailId: this.feedBackForm.controls["emailId"].value,
+            email: this.feedBackForm.controls["email"].value,
             fullName: this.feedBackForm.controls["fullName"].value,
             message: this.feedBackForm.controls["message"].value,
             subject: this.feedBackForm.controls["subject"].value

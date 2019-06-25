@@ -20,6 +20,8 @@ import {UsersModule} from "./shared/components/users/users.module";
 import {UsersComponent} from "./shared/components/users/users.component";
 import {AboutUsModule} from "./shared/components/about-us/about-us.module";
 import {AboutUsComponent} from "./shared/components/about-us/about-us.component";
+import {ShowFeedbackComponent} from "./shared/components/show-feedback/show-feedback.component";
+import {ShowFeedbackModule} from "./shared/components/show-feedback/show-feedback.module";
 
 @NgModule({
     declarations: [
@@ -39,6 +41,7 @@ import {AboutUsComponent} from "./shared/components/about-us/about-us.component"
         ThingsTodoModule,
         UsersModule,
         AboutUsModule,
+        ShowFeedbackModule,
         RouterModule.forRoot([
             {
                 path: "", redirectTo: 'home', pathMatch: 'full'
@@ -58,6 +61,9 @@ import {AboutUsComponent} from "./shared/components/about-us/about-us.component"
             {
                 path: "home", component: AboutUsComponent
             },
+            {
+                path: "show-feedback", component: ShowFeedbackComponent
+            }
         ])
     ],
     providers: [],

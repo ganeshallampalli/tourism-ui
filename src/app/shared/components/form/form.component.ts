@@ -35,7 +35,8 @@ export class FormComponent implements OnInit {
             name: new FormControl("", [Validators.required]),
             description: new FormControl("", [Validators.required]),
             cost: new FormControl("", []),
-            avgTimeSpent: new FormControl("", [])
+            avgTimeSpent: new FormControl("", []),
+            additionalLink: new FormControl("", [])
         })
     }
 
@@ -44,7 +45,8 @@ export class FormComponent implements OnInit {
         const experience: Experience = {
             name: this.form.controls["name"].value,
             description: this.form.controls["description"].value,
-            encodedImage: this.encodedImage
+            encodedImage: this.encodedImage,
+            additionalLink: this.form.controls["additionalLink"].value
         };
 
         let type = "";
@@ -58,8 +60,8 @@ export class FormComponent implements OnInit {
                 type = "cuisine";
             }
 
-            if (this.data.name === "ThingsToDo") {
-                experience.cost = this.form.controls["avgTimeSpent"].value;
+            if (this.data.name === "Things To Do") {
+                experience.avgTimeSpent = this.form.controls["avgTimeSpent"].value;
                 type = "thingsToDo";
             }
 

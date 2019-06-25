@@ -47,7 +47,7 @@ export class NavComponent implements OnInit {
         {
             icon: 'feedback',
             title: 'Feedbacks',
-            route: 'cuisine'
+            route: 'show-feedback'
         }
     ];
 
