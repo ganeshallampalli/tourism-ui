@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
             confirmPassword: new FormControl(null, [Validators.required]),
             firstName: new FormControl("", [Validators.required]),
             lastName: new FormControl("", [Validators.required]),
-            phNo: new FormControl("", [Validators.minLength(10), Validators.maxLength(10)])
+            phNo: new FormControl("", [Validators.minLength(10), Validators.maxLength(13)])
         })
     }
 
